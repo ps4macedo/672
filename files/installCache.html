@@ -9,8 +9,13 @@ function DLProgress(e){
 }
 function DisplayCacheProgress(){
 	setTimeout(function(){parent.cacheUPDtxt.innerHTML="Cache Installed Successfully";},1000);
-	setTimeout(function(){parent.ScrOverlay.style.opacity="0";},2500);
-	setTimeout(function(){parent.ScrOverlay.style.display="none";},3500);}
+	setTimeout(function(){parent.CacheProgress.style.display="none";parent.cacheUPDtxt.innerHTML="Re-Open The Browser To Continue";},2500);
+	//if (localStorage.AutoJB=="ON"){setTimeout(function(){parent.runJB();},2500);}//Auto JB
+	//else {
+	//setTimeout(function(){parent.ScrOverlay.style.opacity="0";},2500);
+	//setTimeout(function(){parent.ScrOverlay.style.display="none";},3500);
+	//}
+	}
 	window.applicationCache.addEventListener("progress",DLProgress,false);
 	window.applicationCache.oncached=function(e){DisplayCacheProgress();};
 	window.applicationCache.onupdateready=function(e){DisplayCacheProgress();};
